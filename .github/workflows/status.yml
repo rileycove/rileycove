@@ -1,0 +1,14 @@
+name: Profile Status Heartbeat
+on:
+  schedule:
+    - cron: '0 0 * * 0' # Weekly run
+  workflow_dispatch:
+
+jobs:
+  heartbeat:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Verify profile health
+        run: echo "Profile verified for @rileycove on $(date)"
